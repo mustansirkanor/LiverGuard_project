@@ -298,9 +298,9 @@ def liver_awareness_videos():
     st.markdown(
         """
         <div style="background:linear-gradient(145deg,#ffffff 0%,#f8f9fa 100%);
-                    border-radius:15px;padding:2rem;margin:2rem 0;
+                    border-radius:15px;padding:1rem;margin:2rem 0;
                     box-shadow:0 8px 25px rgba(0,0,0,0.1);">
-            <h2 style="text-align:center;color:#495057;margin-bottom:2rem;padding:0rem">
+            <h2 style="text-align:center;color:#495057;margin-bottom:2rem;">
                 📺 Educational Videos - Understanding Liver Health
             </h2>
         """,
