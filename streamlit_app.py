@@ -29,7 +29,7 @@ def apply_enhanced_styling():
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
-        margin-top:0.7rem;
+        margin-top:0 rem;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
