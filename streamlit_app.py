@@ -1860,7 +1860,7 @@ def main():
     st.markdown("""
     <div class="demo-container">
         <button class="demo-button" onclick="scrollToDemo()">
-            🎬 Watch Demo Videos
+            🎬 Watch Demo Video
         </button>
     </div>
     <script>
