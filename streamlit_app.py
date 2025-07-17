@@ -302,8 +302,6 @@ def display_educational_videos():
             </div>
         </div>
         """, unsafe_allow_html=True)
-    
-    [image:1]
 
 # ------------------------------------------------------------------
 # Enhanced Core Functions with Simplified Explanations
@@ -613,6 +611,53 @@ def get_natural_remedies_enhanced():
         ]
     }
     return remedies
+
+def get_precautionary_measures(risk_profile):
+    """Comprehensive precautionary measures"""
+    precautions = {
+        "immediate": [],
+        "dietary": [],
+        "environmental": [],
+        "lifestyle": []
+    }
+    
+    # Immediate precautions
+    if risk_profile["primary_risk"] == "High":
+        precautions["immediate"].extend([
+            "🚫 Complete alcohol cessation",
+            "💊 Review all medications with physician",
+            "🌡️ Monitor temperature daily",
+            "⚠️ Avoid acetaminophen >2g/day"
+        ])
+    
+    # Dietary precautions
+    precautions["dietary"].extend([
+        "🍎 Increase antioxidant-rich foods (berries, leafy greens)",
+        "🐟 Include omega-3 rich fish 2-3x/week",
+        "🥩 Limit red meat to <3 servings/week",
+        "🍬 Avoid high-fructose corn syrup",
+        "🧂 Limit sodium to <2300mg/day",
+        "💧 Maintain adequate hydration (8-10 glasses/day)"
+    ])
+    
+    # Environmental precautions
+    precautions["environmental"].extend([
+        "🏭 Avoid industrial chemical exposure",
+        "🧽 Use natural cleaning products",
+        "🚗 Minimize vehicle exhaust exposure",
+        "🌿 Improve indoor air quality"
+    ])
+    
+    # Lifestyle precautions
+    precautions["lifestyle"].extend([
+        "😴 Maintain 7-9 hours sleep nightly",
+        "🧘 Practice stress management techniques",
+        "🚭 Complete smoking cessation",
+        "💉 Ensure hepatitis vaccination current",
+        "🏃 Regular physical activity (150 min/week)"
+    ])
+    
+    return precautions
 
 # ------------------------------------------------------------------
 # Enhanced Clinical UI Implementation
