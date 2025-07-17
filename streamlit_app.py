@@ -176,6 +176,12 @@ def apply_enhanced_styling():
         margin: 1rem 0;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         border: 1px solid #e9ecef;
+        transition: transform 0.2s ease;
+    }
+    
+    .video-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
     
     .form-section {
@@ -255,53 +261,88 @@ def create_tooltip(term, definition):
     """Create a tooltip for medical terms"""
     return f'<span class="medical-term" title="{definition}">{term}</span>'
 
-def display_educational_videos():
-    """Display educational video carousel"""
-    st.markdown("""
-    <div class="video-carousel">
-        <h2 style="text-align: center; color: #495057; margin-bottom: 2rem;">
-            📺 Educational Videos - Understanding Liver Health
-        </h2>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Video carousel content
+# -----------------------  VIDEO CAROUSEL  ----------------------- #
+def liver_awareness_videos():
+    """
+    Embeds a mini-carousel of educational YouTube videos
+    related to liver health, tests and lifestyle.
+    """
     videos = [
         {
-            "title": "🔬 What is Liver Function Testing?",
+            "url": "https://www.youtube.com/watch?v=Qe-UrZIRcQg",
+            "title": "🔬 Liver Function Tests Explained",
             "description": "Learn about the basic tests doctors use to check how well your liver is working, including what the numbers mean.",
-            "duration": "5:30",
-            "topics": ["Blood Tests", "Normal Values", "What Results Mean"]
+            "duration": "5:30"
         },
         {
-            "title": "🍎 Liver-Healthy Diet Guide",
+            "url": "https://www.youtube.com/watch?v=bmzIO__2lQs",
+            "title": "🍎 Tips to Keep Your Liver Healthy",
             "description": "Discover foods that support liver health and what to avoid to keep your liver functioning optimally.",
-            "duration": "7:15",
-            "topics": ["Nutrition", "Foods to Eat", "Foods to Avoid"]
+            "duration": "7:15"
         },
         {
-            "title": "⚠️ Early Warning Signs of Liver Problems",
+            "url": "https://www.youtube.com/watch?v=_bDuhAAJlvk",
+            "title": "⚠️ Early Warning Signs of Liver Damage",
             "description": "Recognize the symptoms that might indicate liver issues and when to seek medical attention.",
-            "duration": "6:45",
-            "topics": ["Symptoms", "When to See a Doctor", "Prevention"]
+            "duration": "6:45"
+        },
+        {
+            "url": "https://www.youtube.com/watch?v=KgONNZbxwmY",
+            "title": "🥗 Foods That Detox the Liver",
+            "description": "Natural foods and dietary approaches that support liver detoxification and health.",
+            "duration": "5:20"
         }
     ]
-    
-    for i, video in enumerate(videos):
-        st.markdown(f"""
-        <div class="video-item">
-            <h3 style="color: #667eea; margin-bottom: 1rem;">{video['title']}</h3>
-            <p style="color: #6c757d; margin-bottom: 1rem;">{video['description']}</p>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="background: #e9ecef; padding: 4px 8px; border-radius: 4px; font-size: 0.9rem;">
-                    ⏱️ {video['duration']}
-                </span>
-                <div style="display: flex; gap: 10px;">
-                    {"".join([f'<span style="background: #667eea; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem;">{topic}</span>' for topic in video['topics']])}
+
+    st.markdown(
+        """
+        <div style="background:linear-gradient(145deg,#ffffff 0%,#f8f9fa 100%);
+                    border-radius:15px;padding:2rem;margin:2rem 0;
+                    box-shadow:0 8px 25px rgba(0,0,0,0.1);">
+            <h2 style="text-align:center;color:#495057;margin-bottom:2rem;">
+                📺 Educational Videos - Understanding Liver Health
+            </h2>
+        """,
+        unsafe_allow_html=True
+    )
+
+    cols = st.columns(len(videos))
+    for col, vid in zip(cols, videos):
+        thumb_id = vid["url"].split("v=")[-1]
+        thumb_url = f"https://img.youtube.com/vi/{thumb_id}/hqdefault.jpg"
+
+        col.markdown(
+            f"""
+            <a href="{vid['url']}" target="_blank" style="text-decoration:none;">
+                <div style="border:1px solid #e9ecef;border-radius:12px;
+                            overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.05);
+                            transition:transform .2s;background:white;">
+                    <img src="{thumb_url}" width="100%" style="display:block;">
+                    <div style="padding:1rem;">
+                        <h4 style="font-size:0.95rem;color:#667eea;margin:0 0 0.5rem;
+                                   font-weight:600;line-height:1.3;">
+                            {vid['title']}
+                        </h4>
+                        <p style="font-size:0.8rem;color:#6c757d;margin:0 0 0.5rem;
+                                  line-height:1.4;">
+                            {vid['description']}
+                        </p>
+                        <span style="background:#e9ecef;padding:3px 8px;
+                                     border-radius:4px;font-size:0.8rem;color:#495057;">
+                            ⏱️ {vid['duration']}
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+            </a>
+            """,
+            unsafe_allow_html=True
+        )
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+def display_educational_videos():
+    """Display educational video carousel - keeping original function for compatibility"""
+    liver_awareness_videos()
 
 # ------------------------------------------------------------------
 # Enhanced Core Functions with Simplified Explanations
@@ -711,9 +752,9 @@ def main():
         </div>
         """, unsafe_allow_html=True)
     
-    # Educational video section
+    # Educational video section with YouTube integration
     st.markdown("## 📚 Learn About Liver Health")
-    display_educational_videos()
+    liver_awareness_videos()
     
     # Enhanced assessment form
     st.markdown("## 📊 Health Assessment Form")
