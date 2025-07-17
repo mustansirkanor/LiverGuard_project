@@ -436,8 +436,8 @@ def main():
         
         with col2:
             st.markdown("**🌡️ Vital Signs**")
-            body_temp = st.number_input("Body Temperature (°C)", 35.0, 42.0, 37.0, step=0.1)
-            liver_temp = st.number_input("Liver Temperature (°C)", 35.0, 45.0, 37.5, step=0.1)
+            body_temp = st.number_input("Body Temperature (°C)", value=37.0, step=0.1)
+            liver_temp = st.number_input("Liver Temperature (°C)", value=37.5, step=0.1)
             gsr = st.number_input("GSR (μS)", 0.0, 100.0, 25.0, step=0.1)
         
         with col3:
