@@ -430,22 +430,22 @@ def main():
         col1, col2, col3 = st.columns(3)
         with col1:
             st.markdown("**👤 Patient Demographics**")
-            age = st.number_input("Age (years)", 1, 100, 35)
+            age = st.number_input("Age (years)", value=35)
             gender = st.selectbox("Gender", ["Male", "Female"])
-            bmi = st.number_input("BMI", 15.0, 50.0, 25.0, step=0.1)
+            bmi = st.number_input("BMI", value=25.0, step=0.1)
         
         with col2:
             st.markdown("**🌡️ Vital Signs**")
             body_temp = st.number_input("Body Temperature (°C)", value=37.0, step=0.1)
             liver_temp = st.number_input("Liver Temperature (°C)", value=37.5, step=0.1)
-            gsr = st.number_input("GSR (μS)", 0.0, 100.0, 25.0, step=0.1)
+            gsr = st.number_input("GSR (μS)", value=25.0, step=0.1)
         
         with col3:
             st.markdown("**🎨 Colorimetric Analysis**")
-            r = st.number_input("Red (R)", 0.0, step=1.0, value=100.0)
-            g = st.number_input("Green (G)", 0.0, step=1.0, value=120.0)
-            b = st.number_input("Blue (B)", 0.0, step=1.0, value=80.0)
-            c = st.number_input("Intensity (C)", 0.0, step=1.0, value=300.0)
+            r = st.number_input("Red (R)", value=100.0, step=1.0)
+            g = st.number_input("Green (G)", value=120.0, step=1.0)
+            b = st.number_input("Blue (B)", value=80.0, step=1.0)
+            c = st.number_input("Intensity (C)", value=300.0, step=1.0)
         
         submit = st.form_submit_button("🔬 Perform Clinical Analysis", use_container_width=True)
     
