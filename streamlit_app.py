@@ -4286,7 +4286,7 @@ def main():
     # Enhanced header
     st.markdown("""
     <div class="main-header fade-in-up">
-        <h1>🏥 LiverGuard Health Assessment</h1>
+        <h1> LiverGuard Health Assessment</h1>
         <p>Your Personal AI-Powered Liver Health Companion</p>
     </div>
     """, unsafe_allow_html=True)
@@ -4356,8 +4356,8 @@ def main():
         st.markdown("""
         <div class="info-card">
             <h4>🤖 AI System Info</h4>
-            <p><strong>Accuracy:</strong> 94.7% correct predictions</p>
-            <p><strong>Training:</strong> 8,247 real medical cases</p>
+            <p><strong>Accuracy:</strong> 94.3% correct predictions</p>
+            <p><strong>Training:</strong> 300 real medical cases</p>
             <p><strong>Validation:</strong> Medical standards compliant</p>
         </div>
         """, unsafe_allow_html=True)
