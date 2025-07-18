@@ -4313,13 +4313,13 @@ def main():
             """, unsafe_allow_html=True)
             
             # Check if video file exists
-            video_path = Path("demo.mp4")
+            video_path = Path("demo (2).mp4")
             if video_path.exists():
                 try:
                     # Center the video with proper sizing
                     col1, col2, col3 = st.columns([1, 8, 1])
                     with col2:
-                        st.video("demo.mp4")
+                        st.video("demo (2).mp4")
                     
                     # Add some spacing
                     st.markdown("<br>", unsafe_allow_html=True)
